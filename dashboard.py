@@ -12,7 +12,7 @@ def main():
     
     if tabs == "Data Wrangling":
         st.subheader('Data Hasil Preprocessing Daily Bike Sharing')
-        file_path_day = "C:/Users/LENOVO/Documents/assignment/data/day_df.csv"
+        file_path_day = "data/day_df.csv"
         day_data = pd.read_csv(file_path_day)
 
         st.write("Jumlah Data:", day_data.shape[0])
@@ -22,7 +22,7 @@ def main():
         st.write(day_data)
 
         st.subheader('Data Hasil Preprocessing Hourly Bike Sharing')
-        file_path_hasil = "C:/Users/LENOVO/Documents/assignment/data/hour_df.csv"
+        file_path_hasil = "data/hour_df.csv"
         hour_data = pd.read_csv(file_path_hasil)
 
         st.write("Jumlah Data:", hour_data.shape[0])
@@ -34,7 +34,7 @@ def main():
     elif tabs == "Pertanyaan 1":
         st.subheader("Bagaimana pola trend penyewaan sepeda setiap bulannya?")
         # Data preparation
-        day_df = pd.read_csv("C:/Users/LENOVO/Documents/assignment/data/day_df.csv")
+        day_df = pd.read_csv("data/day_df.csv")
         perbulan = day_df.groupby(by=["mnth","yr"]).agg({"cnt": "sum"}).reset_index()
 
         # Streamlit app
@@ -51,7 +51,7 @@ def main():
 
         # Ganti kode ini dengan logika pengambilan data sesuai kebutuhan Anda
         st.subheader("Bagaimana pola trend penyewaan sepeda setiap jamnya?")
-        hour_df = pd.read_csv("C:/Users/LENOVO/Documents/assignment/data/hour_df.csv")
+        hour_df = pd.read_csv("data/hour_df.csv")
         perjam = hour_df.groupby(by=["hr","yr"]).agg({"cnt": "sum"}).reset_index()
             
         plt.figure(figsize=(10, 6))
@@ -66,7 +66,7 @@ def main():
 
     elif tabs == "Pertanyaan 2":
         st.subheader("Bagaimana pola trend penyewaan sepeda setiap bulannya?")
-        day_df = pd.read_csv("C:/Users/LENOVO/Documents/assignment/data/day_df.csv")
+        day_df = pd.read_csv("data/day_df.csv")
         season_day = day_df.groupby(by=["season","yr"]).agg({"cnt": "sum"}).reset_index()
 
         plt.figure(figsize=(10, 6))
